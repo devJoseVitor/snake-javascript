@@ -7,7 +7,11 @@ let snake = [ // posição inicial
         y : 8 * box
     }
 ];
-let direction = 'up';
+let direction = 'right';
+let food = {
+    x : Math.floor(Math.random() * 15 + 1) * box,
+    y : Math.floor(Math.random() * 15 + 1) * box
+};
 
 
 const criarBackground = () => {
@@ -20,6 +24,11 @@ const criarSnake = () => {
         context.fillStyle = 'green'; // Cor que será usada na cobrinha
         context.fillRect(snake[i].x, snake[i].y, box, box); // Desenha a cobrinha de acordo com o tamanho do vetor snake
     }
+}
+
+const criarComida = () => {
+    context.fillStyle = 'red';
+    context.fillRect(food.x, food.y, box, box);
 }
 
 document.addEventListener('keydown', (event) => { // "escuta" o evento de apertar uma tecla
@@ -40,6 +49,7 @@ const iniciarJogo = () => {
 
     criarBackground(); // Executa a função de criar o fundo do canvas
     criarSnake(); // Executa a função de criar a cobrinha
+    criarComida();
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
