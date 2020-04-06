@@ -32,6 +32,13 @@ const criarComida = () => {
 }
 
 document.addEventListener('keydown', (event) => { // "escuta" o evento de apertar uma tecla
+    for( let i = 1; i < snake.length; i++ ){
+        if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){ // se a "cabeça" da cobrinha se colidir com qualquer outra parte dela mesmo, o jogo finaliza
+            clearInterval(jogo);
+            alert('Game Over :[');
+        }
+    }
+
     // todas as teclas definidas e faz com que não possa voltar para a direção inversa no mesmo eixo -> se estou para a direita, não posso ir para esquerda; se estou para cima, não posso ir para baixo.
     if ( event.keyCode == 39 && direction !== 'left' ) direction = 'right';
     if ( event.keyCode == 37 && direction !== 'right' ) direction = 'left';
