@@ -1,14 +1,14 @@
 let canvas = document.getElementById('snake'); // Referência ao id do canvas no HTML
 let context = canvas.getContext('2d'); // Define contexto, 3d ou 2d
-let box = 32;
+let box = 32; // tamahno em pixels de um frame
 let snake = [ // posição inicial
     {
         x : 8 * box,
         y : 8 * box
     }
 ];
-let direction = 'right';
-let food = {
+let direction = 'right'; // diração inicial
+let food = { // posição aleatória da comida
     x : Math.floor(Math.random() * 15 + 1) * box,
     y : Math.floor(Math.random() * 15 + 1) * box
 };
@@ -59,7 +59,11 @@ const iniciarJogo = () => {
     if ( direction === 'up' ) snakeY -= box; // se for para cima, adiciona um quadrado para o lado cima
     if ( direction === 'down' ) snakeY += box; // se for para baixo, adiciona um quadrado para o lado baixo
 
-    snake.pop(); // remove a última "cabeça" do corpo da cobrinha
+    if ( snakeX != food.x || snakeY != food.y ) snake.pop(); // remove a última "cabeça" do corpo da cobrinha
+    else {
+        food.x = Math.floor(Math.random() * 15 + 1) * box;
+        food.y = Math.floor(Math.random() * 15 + 1) * box;
+    }
 
     let newHead = { // define onde deve aparecer a nova "cabeça" da cobrinha
         x : snakeX,
