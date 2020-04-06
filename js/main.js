@@ -22,15 +22,30 @@ const criarSnake = () => {
     }
 }
 
+document.addEventListener('keydown', (event) => { // "escuta" o evento de apertar uma tecla
+    // todas as teclas definidas e faz com que não possa voltar para a direção inversa no mesmo eixo -> se estou para a direita, não posso ir para esquerda; se estou para cima, não posso ir para baixo.
+    if ( event.keyCode == 39 && direction !== 'left' ) direction = 'right';
+    if ( event.keyCode == 37 && direction !== 'right' ) direction = 'left';
+    if ( event.keyCode == 40 && direction !== 'up' ) direction = 'down';
+    if ( event.keyCode == 38 && direction !== 'down' ) direction = 'up';
+    
+});
+
 const iniciarJogo = () => {
+    // se a cobrinha atingir o limite do canvas, faz com que apareça do outro lado
+    if ( snake[0].x < 0 * box && direction === 'left' ) snake[0].x = 16 * box;
+    if ( snake[0].x > 15 * box && direction === 'right' ) snake[0].x = 0;
+    if ( snake[0].y < 0 * box && direction === 'up' ) snake[0].y = 16 * box;
+    if ( snake[0].y > 15 * box && direction === 'down' ) snake[0].y = 0;
+
     criarBackground(); // Executa a função de criar o fundo do canvas
     criarSnake(); // Executa a função de criar a cobrinha
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
-    if ( direction === 'right' ) snakeX += box; // se for para direita, adiciona um quadrado para o lado direito
     if ( direction === 'left' ) snakeX -= box; // se for para esquerda, adiciona um quadrado para o lado esquerdo
+    if ( direction === 'right' ) snakeX += box; // se for para direita, adiciona um quadrado para o lado direito
     if ( direction === 'up' ) snakeY -= box; // se for para cima, adiciona um quadrado para o lado cima
     if ( direction === 'down' ) snakeY += box; // se for para baixo, adiciona um quadrado para o lado baixo
 
