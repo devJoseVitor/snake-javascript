@@ -1,2 +1,2 @@
-# snake-javascript
-Clássico jogo da cobrinha em Javascript!
+# 🐍Snake Javascript 
+Clássico jogo da cobrinha em Javascript!😀
