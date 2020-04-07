@@ -7,8 +7,8 @@
 @mixin footerCfg {
     position: fixed;
     bottom: 2%;
-    // left: 50%;
-    // transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);
     pointer-events: none;
     z-index: 2;
 }
@@ -25,68 +25,72 @@
 }
 
 body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #262626;
+    overflow: hidden;
+
+    #container{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #262626;
+
+        #pausado{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            color: rgb(255, 196, 0);
+            text-shadow: 0 0 20px rgb(255, 196, 0);
+            font-size: 4em;
+            pointer-events: none;
+            z-index: 2;
+        }
     
-    #pausado{
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: none;
-        color: rgb(255, 196, 0);
-        text-shadow: 0 0 20px rgb(255, 196, 0);
-        font-size: 4em;
-        pointer-events: none;
-        z-index: 2;
-    }
-
-    #game-over{
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: none;
-        color: rgb(231, 43, 43);
-        text-shadow: 0 0 20px rgb(231, 43, 43);
-        font-size: 4em;
-        pointer-events: none;
-        z-index: 2;
-    }
-
-    h1{
-        margin: 20px;
-        text-transform: uppercase;
-        color: #FFF;
-        text-shadow: 0 0 20px #FFF;
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    #snake{
-        box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.5);
-        pointer-events: none;
-    }
-
-    #pontuacao{
-        margin: 20px;
-        color: #FFF;
-        text-shadow: 0 0 20px #FFF;
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    #controles{
-        margin: 20px;
-        color: #FFF;
-        text-shadow: 0 0 15px #FFF;
-        pointer-events: none;
-        z-index: 1;
+        #game-over{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            color: rgb(231, 43, 43);
+            text-shadow: 0 0 20px rgb(231, 43, 43);
+            font-size: 4em;
+            pointer-events: none;
+            z-index: 2;
+        }
+    
+        h1{
+            margin: 20px;
+            text-transform: uppercase;
+            color: #FFF;
+            text-shadow: 0 0 20px #FFF;
+            pointer-events: none;
+            z-index: 1;
+        }
+    
+        #snake{
+            box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+        }
+    
+        #pontuacao{
+            margin: 20px;
+            color: #FFF;
+            text-shadow: 0 0 20px #FFF;
+            pointer-events: none;
+            z-index: 1;
+        }
+    
+        #controles{
+            margin: 20px;
+            color: #FFF;
+            text-shadow: 0 0 15px #FFF;
+            pointer-events: none;
+            z-index: 1;
+        }
     }
 
     footer{

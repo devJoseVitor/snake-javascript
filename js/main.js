@@ -15,6 +15,11 @@ let food = { // Posição aleatória da comida
 let pontuacao = 0; // Quantidade de pontos
 let pausado = false; // Controlador de pause
 let gameOver = false; // Controlador de Game Over
+let sfxComidinha = new Audio('./sfx/sfxPonto.wav');
+let sfxGameOver = new Audio('./sfx/sfxFail.wav');
+let sfxRestart = new Audio('./sfx/sfxRestart.wav');
+let sfxPauseIn = new Audio('./sfx/sfxPauseIn.wav');
+let sfxPauseOut = new Audio('./sfx/sfxPauseOut.wav');
 
 
 const criarBackground = () => {
@@ -73,6 +78,7 @@ const iniciarJogo = () => {
             clearInterval(jogo); // Para de executar a função para atualizar a tela
             document.getElementById('game-over').style.display = 'block';
             gameOver = true;
+            sfxGameOver.play();
         }
     }
 
@@ -94,6 +100,7 @@ const iniciarJogo = () => {
         food.x = Math.floor(Math.random() * 15 + 1) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
         pontuacao++;
+        sfxComidinha.play();
     }
 
     let newHead = { // Define onde deve aparecer a nova "cabeça" da cobrinha
@@ -110,10 +117,12 @@ const pausarJogo = (op) => {
         clearInterval(jogo); // Para de executar a função para atualizar a tela
         document.getElementById('pausado').style.display = 'block';
         pausado = true;
+        sfxPauseIn.play();
     }else{
         jogo = setInterval(iniciarJogo, 75); // Retoma o intervalo de execução da função de atualização de tela
         document.getElementById('pausado').style.display = 'none';
         pausado = false;
+        sfxPauseOut.play();
     }
 }
 
@@ -137,6 +146,7 @@ const reiniciarJogo = () => {
     pontuacao = 0; // Zera a pontuação
 
     jogo = setInterval(iniciarJogo, 75); // Retoma o intervalo de execução da função de atualização de tela
+    sfxRestart.play();
 }
 
 let jogo = setInterval(iniciarJogo, 75); // Define o intervalo de execução da função de atualização de tela

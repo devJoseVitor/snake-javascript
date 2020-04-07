@@ -5,6 +5,10 @@
 }
 
 body {
+  overflow: hidden;
+}
+
+body #container {
   width: 100vw;
   height: 100vh;
   display: -webkit-box;
@@ -23,7 +27,7 @@ body {
   background-color: #262626;
 }
 
-body #pausado {
+body #container #pausado {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -37,7 +41,7 @@ body #pausado {
   z-index: 2;
 }
 
-body #game-over {
+body #container #game-over {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -51,7 +55,7 @@ body #game-over {
   z-index: 2;
 }
 
-body h1 {
+body #container h1 {
   margin: 20px;
   text-transform: uppercase;
   color: #FFF;
@@ -60,13 +64,13 @@ body h1 {
   z-index: 1;
 }
 
-body #snake {
+body #container #snake {
   -webkit-box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.5);
   pointer-events: none;
 }
 
-body #pontuacao {
+body #container #pontuacao {
   margin: 20px;
   color: #FFF;
   text-shadow: 0 0 20px #FFF;
@@ -74,7 +78,7 @@ body #pontuacao {
   z-index: 1;
 }
 
-body #controles {
+body #container #controles {
   margin: 20px;
   color: #FFF;
   text-shadow: 0 0 15px #FFF;
@@ -85,6 +89,9 @@ body #controles {
 body footer {
   position: fixed;
   bottom: 2%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   pointer-events: none;
   z-index: 2;
   color: #FFF;
