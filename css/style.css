@@ -5,8 +5,8 @@
 }
 
 body {
-  width: 95vw;
-  height: 95vh;
+  width: 100vw;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,16 +21,85 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #262626;
-  color: #FFF;
+}
+
+body #pausado {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  color: #ffc400;
+  text-shadow: 0 0 20px #ffc400;
+  font-size: 4em;
+  pointer-events: none;
+  z-index: 2;
+}
+
+body #game-over {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  color: #e72b2b;
+  text-shadow: 0 0 20px #e72b2b;
+  font-size: 4em;
+  pointer-events: none;
+  z-index: 2;
 }
 
 body h1 {
+  margin: 20px;
   text-transform: uppercase;
+  color: #FFF;
+  text-shadow: 0 0 20px #FFF;
+  pointer-events: none;
   z-index: 1;
 }
 
 body #snake {
   -webkit-box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+body #pontuacao {
+  margin: 20px;
+  color: #FFF;
+  text-shadow: 0 0 20px #FFF;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body #controles {
+  margin: 20px;
+  color: #FFF;
+  text-shadow: 0 0 15px #FFF;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body footer {
+  position: fixed;
+  bottom: 2%;
+  pointer-events: none;
+  z-index: 2;
+  color: #FFF;
+}
+
+body footer a {
+  text-decoration: none;
+  font-weight: bolder;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  pointer-events: visible;
+  color: #FFF;
+}
+
+body footer a:hover {
+  color: #934de2;
 }
 /*# sourceMappingURL=style.css.map */
