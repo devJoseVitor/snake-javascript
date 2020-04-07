@@ -8,7 +8,7 @@ body {
   overflow: hidden;
 }
 
-body #container {
+#container {
   width: 100vw;
   height: 100vh;
   display: -webkit-box;
@@ -27,7 +27,7 @@ body #container {
   background-color: #262626;
 }
 
-body #container #pausado {
+#container #pausado {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -41,7 +41,7 @@ body #container #pausado {
   z-index: 2;
 }
 
-body #container #game-over {
+#container #game-over {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -55,7 +55,7 @@ body #container #game-over {
   z-index: 2;
 }
 
-body #container h1 {
+#container h1 {
   margin: 20px;
   text-transform: uppercase;
   color: #FFF;
@@ -64,13 +64,13 @@ body #container h1 {
   z-index: 1;
 }
 
-body #container #snake {
+#container #snake {
   -webkit-box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.5);
   pointer-events: none;
 }
 
-body #container #pontuacao {
+#container #pontuacao {
   margin: 20px;
   color: #FFF;
   text-shadow: 0 0 20px #FFF;
@@ -78,7 +78,7 @@ body #container #pontuacao {
   z-index: 1;
 }
 
-body #container #controles {
+#container #controles {
   margin: 20px;
   color: #FFF;
   text-shadow: 0 0 15px #FFF;
@@ -86,7 +86,7 @@ body #container #controles {
   z-index: 1;
 }
 
-body footer {
+footer {
   position: fixed;
   bottom: 2%;
   left: 50%;
@@ -97,7 +97,7 @@ body footer {
   color: #FFF;
 }
 
-body footer a {
+footer a {
   text-decoration: none;
   font-weight: bolder;
   -webkit-transition: .3s ease;
@@ -106,7 +106,23 @@ body footer a {
   color: #FFF;
 }
 
-body footer a:hover {
+footer a:hover {
   color: #934de2;
+}
+
+@media (max-height: 768px) {
+  #container h1 {
+    font-size: 0.85em;
+  }
+  #container #pontuacao {
+    font-size: 0.85em;
+  }
+  #container #controles {
+    font-size: 0.75em;
+  }
+  footer {
+    left: 10%;
+    font-size: 0.8em;
+  }
 }
 /*# sourceMappingURL=style.css.map */
